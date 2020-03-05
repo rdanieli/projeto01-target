@@ -37,6 +37,26 @@ public class OlaMundo {
 		System.out.println(meuBoolean);	
 		
 		System.out.println("Testando o Git.");
+		
+		
+		OlaMundo olaMundo = new OlaMundo();
+	
+		double segundoValor = 1024.0;
+		
+		segundoValor = segundoValor - 100.0;
+		
+		double resultado = olaMundo.soma(1.0, segundoValor);
+		
+		System.out.println("O Resultado da minha soma é " + resultado);
 	}
 
+	public Double soma(Double p1, Double p2) {
+		
+		if(p1 > 10 && p2 > 10) {
+			return p1 + p2;
+		}
+		
+		return -1.0;
+	}
+	
 }
