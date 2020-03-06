@@ -4,59 +4,47 @@ import java.lang.annotation.Target;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.Scanner;
 
 public class OlaMundo {
 
 	static Boolean meuBoolean = Boolean.TRUE;
 	
 	public static void main(String[] args) {
-		
-		String minhaString = "Target Trust";
-		
-		minhaString = minhaString.substring(9);
-		
-		Double wrapper = 2.0;
-		double primitivo = 2.0;
-
-		byte b = 1;
-		
-		wrapper = (double) b;
-		
-		System.out.println(minhaString);
-		
-		System.out.println(wrapper);
-		System.out.println(primitivo);
-		
-		
-		BigDecimal valorCheio = new BigDecimal("150.97");
-		
-		BigDecimal dezPorCentoDoValor = valorCheio.multiply(new BigDecimal("0.1"));
-		
-		System.out.println(dezPorCentoDoValor.setScale(2, RoundingMode.HALF_EVEN));
-		
-		System.out.println(meuBoolean);	
-		
-		System.out.println("Testando o Git.");
-		
-		
 		OlaMundo olaMundo = new OlaMundo();
-	
-		double segundoValor = 1024.0;
 		
-		segundoValor = segundoValor - 100.0;
+		String numeroEmString1 = olaMundo.lerTeclado();
+		Double numeroEmDouble1 = Double.valueOf(numeroEmString1);
+
+		String numeroEmString2 = olaMundo.lerTeclado();
+		Double numeroEmDouble2 = Double.valueOf(numeroEmString2);
+
+		String numeroEmString3 = olaMundo.lerTeclado();
+		Double numeroEmDouble3 = Double.valueOf(numeroEmString3);
 		
-		double resultado = olaMundo.soma(1.0, segundoValor);
+		double resultado = olaMundo.media(numeroEmDouble1, numeroEmDouble2, numeroEmDouble3);
 		
-		System.out.println("O Resultado da minha soma é " + resultado);
+		System.out.println(String.format("O valor da média é: %.2f", resultado));
+		
+		if(resultado >= 7) {
+			System.out.println("O Aluno foi aprovado!");
+		} else {
+			System.out.println("O Aluno foi reprovado!");
+		}
 	}
 
 	public Double soma(Double p1, Double p2) {
-		
-		if(p1 > 10 && p2 > 10) {
-			return p1 + p2;
-		}
-		
-		return -1.0;
+		return p1 + p2;
 	}
 	
+
+	public Double media(Double p1, Double p2, Double p3) {
+		return (p1 + p2 + p3) / 3;
+	}
+	
+	public String lerTeclado() {
+		Scanner entradaConsole = new Scanner(System.in);
+		
+		return entradaConsole.next();
+	}
 }
