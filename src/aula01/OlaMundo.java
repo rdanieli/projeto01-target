@@ -25,6 +25,8 @@ public class OlaMundo {
 		double resultado = olaMundo.media(numeroEmDouble1, numeroEmDouble2, numeroEmDouble3);
 		
 		System.out.println(String.format("O valor da média é: %.2f", resultado));
+	
+		resultado = resultado > 7 ? 10 : 22;
 		
 		if(resultado >= 7) {
 			System.out.println("O Aluno foi aprovado!");
